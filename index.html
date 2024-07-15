@@ -3,73 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Streaming Top 50 Japan Dashboard</title>
+    <title>Hitomi Tsukamoto's Data Analytics Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px 0 0 0; /* 上部に20pxのマージンを追加 */
+            font-family: Georgia, serif;
+            margin: 40px; /* ページ全体の余白を広げる */
             background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* 画面全体を覆う高さにする */
         }
         .container {
-            width: 90%;
+            width: 90%; /* デフォルトの幅 */
             max-width: 1200px;
             margin: 20px auto;
             background-color: #fff;
-            padding: 20px;
+            padding: 20px 40px; /* 左右の余白を広げる */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: width 0.5s, max-width 0.5s, height 0.5s;
         }
         h1 {
             text-align: center;
-            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        h2 {
+            text-align: left;
+        }
+        .centered {
+            text-align: center;
+            color: #666;
+        }
+        h3 {
+            text-align: left;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .embed-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #f4f4f4;
+        }
+        .embed-container iframe,
+        .embed-container object,
+        .embed-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* メディアクエリで幅を調整 */
+        @media (min-width: 1600px) {
+            .container {
+                width: 70%;
+            }
+        }
+        @media (min-width: 2000px) {
+            .container {
+                width: 60%;
+            }
+        }
+        /* フルスクリーンボタン */
+        .fullscreen-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #333;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .fullscreen-btn:hover {
+            background-color: #555;
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        .fullscreen-btn:active {
+            background-color: #111;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(2px);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Spotify Streaming Top 50 Japan Dashboard</h1>
-        <div class='tableauPlaceholder' id='viz1721044433558' style='position: relative'>
-            <noscript>
-                <a href='#'><img alt=' ' src='https://public.tableau.com/static/images/Sp/SpotifyStreamingTop50Japan/1/1_rss.png' style='border: none' /></a>
-            </noscript>
-            <object class='tableauViz' style='display:none;'>
-                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                <param name='embed_code_version' value='3' />
-                <param name='site_root' value='' />
-                <param name='name' value='SpotifyStreamingTop50Japan/1' />
-                <param name='tabs' value='yes' />
-                <param name='toolbar' value='yes' />
-                <param name='static_image' value='https://public.tableau.com/static/images/Sp/SpotifyStreamingTop50Japan/1/1.png' />
-                <param name='animate_transition' value='yes' />
-                <param name='display_static_image' value='yes' />
-                <param name='display_spinner' value='yes' />
-                <param name='display_overlay' value='yes' />
-                <param name='display_count' value='yes' />
-                <param name='language' value='ja-JP' />
-            </object>
+    <div class="container" id="content-container">
+        <h1>Data Visualization Portfolio</h1>
+        <h2 class="centered">Hitomi Tsukamoto</h2>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">Toggle Fullscreen</button>
+        
+        <div class="section">
+            <h2>Project Overview</h2>
+            <p>Welcome to my data analytics portfolio. Here you'll find my latest project on Spotify's Top 50 Streaming Songs in Japan, analyzed and visualized using Tableau.</p>
         </div>
-        <script type='text/javascript'>
-            var divElement = document.getElementById('viz1721044433558');
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            if ( divElement.offsetWidth > 800 ) { 
-                vizElement.style.width='100%'; 
-                vizElement.style.height=(divElement.offsetWidth*0.75)+'px'; 
-            } else if ( divElement.offsetWidth > 500 ) { 
-                vizElement.style.width='100%'; 
-                vizElement.style.height=(divElement.offsetWidth*0.75)+'px'; 
-            } else { 
-                vizElement.style.width='100%'; 
-                vizElement.style.minHeight='2400px'; 
-                vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px'; 
-            }
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-        </script>
+        
+        <div class="section">
+            <h2>Spotify Streaming Top 50 Japan Dashboard</h2>
+            <div class='embed-container'>
+                <div class='tableauPlaceholder' id='viz1721044433558' style='position: relative'>
+                    <noscript>
+                        <a href='#'><img alt=' ' src='https://public.tableau.com/static/images/Sp/SpotifyStreamingTop50Japan/1/1_rss.png' style='border: none' /></a>
+                    </noscript>
+                    <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='site_root' value='' />
+                        <param name='name' value='SpotifyStreamingTop50Japan/1' />
+                        <param name='tabs' value='yes' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https://public.tableau.com/static/images/Sp/SpotifyStreamingTop50Japan/1/1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='ja-JP' />
+                    </object>
+                </div>
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1721044433558');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    if ( divElement.offsetWidth > 800 ) { 
+                        vizElement.style.width='100%'; 
+                        vizElement.style.height=(divElement.offsetWidth*0.75)+'px'; 
+                    } else if ( divElement.offsetWidth > 500 ) { 
+                        vizElement.style.width='100%'; 
+                        vizElement.style.height=(divElement.offsetWidth*0.75)+'px'; 
+                    } else { 
+                        vizElement.style.width='100%'; 
+                        vizElement.style.minHeight='2400px'; 
+                        vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px'; 
+                    }
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+            </div>
+            <p>This dashboard visualizes the top 50 streaming songs in Japan, providing insights into rankings, popularity, and trends across various genres.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Data Analysis Details</h2>
+            <ul>
+                <li>
+                    <h3>Data Collection</h3>
+                    <p>Data was collected using the Spotify API, which provides real-time information on streaming counts and song metadata. Since the API only allows for the retrieval of daily data, a process was implemented to accumulate this information over time. This ensures that the analysis includes comprehensive historical data for accurate trend analysis and insights.</p>
+                </li>
+                <li>
+                    <h3>Data Processing</h3>
+                    <p>Data was processed and cleaned using Python to ensure accuracy and relevance before being visualized in Tableau.</p>
+                </li>
+                <li>
+                    <h3>Analysis Techniques</h3>
+                    <p>Various analysis techniques were applied, including trend analysis, popularity tracking, and genre comparison.</p>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>What You Can Do</h2>
+            <ul>
+                <li>
+                    <h3>Track Song Performance</h3>
+                    <p>Click on any of the top 50 songs to view detailed trends in ranking and popularity.</p>
+                </li>
+                <li>
+                    <h3>Analyze Custom Periods</h3>
+                    <p>Investigate ranking and popularity trends over specific date ranges.</p>
+                </li>
+                <li>
+                    <h3>Explore Artist Insights</h3>
+                    <p>Analyze the performance of specific artists, observing trends in their rankings and popularity.</p>
+                </li>
+                <li>
+                    <h3>Compare Genre Trends</h3>
+                    <p>Review and compare trends across different music genres, gaining insights into genre-specific performance.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Contact Information</h2>
+            <p>Feel free to connect with me on LinkedIn:</p>
+            <p><a href="https://jp.linkedin.com/in/hitomi-tsukamoto?trk=profile-badge" target="_blank">Hitomi Tsukamoto on LinkedIn</a></p>
+        </div>
+
     </div>
+
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
+
+    <script>
+        function toggleFullscreen() {
+            var container = document.getElementById("content-container");
+            if (container.style.width === "100%") {
+                container.style.width = "90%";
+                container.style.maxWidth = "1200px";
+            } else {
+                container.style.width = "100%";
+                container.style.maxWidth = "100%";
+            }
+        }
+    </script>
+
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
 </body>
 </html>
+
